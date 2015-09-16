@@ -1,0 +1,25 @@
+﻿@model AprendaHtmlAction.Models.Professor
+@{
+    ViewBag.Title = "Inicio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Inicio</h2>
+<h2>Usando Action Link</h2>
+<hr />
+<p>Primeira maneira, trazendo os valores do controle, ou seja a View é tipada para professor.</p>
+<div>
+    <table class="table table-bordered table-responsive table-striped">
+        <tr>
+            <th>Codigo</th><th>Nome</th>
+        </tr>
+        <tr><td>@Model.Codigo</td><td>@Model.Nome</td></tr>
+    </table>
+</div>
+<hr />
+<p>Usando action com parametros  e partialView, aqui minha partial View é Tipada com a Model Aluno e recebe de parametro,
+    Codigo=1 e Aluno =Aluno</p>
+@Html.Action("_Aluno", "Usuarios", new { Codigo=1,Nome="Aluno"})
+<hr />
+<p>O mesmo ocorre com essa tabela,porém não passa parametros e esta tipada para a model Heroi</p>
+@Html.Action("_Heroi","Usuarios")
+
